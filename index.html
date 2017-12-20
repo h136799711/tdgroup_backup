@@ -1,0 +1,78 @@
+<!--#include virtual="tpl/head.tpl"-->
+  <title>杭州天蛋科技有限公司</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+</head>
+
+<body>
+<div id="js-p">
+</div>
+<div class="center">
+  <div class="logo animated pulse"></div>
+  <center><img src="img/pre_text.png" alt="internet technology"></center>
+  <div class="desc animated bounceIn">
+    杭州天蛋科技有限公司（简称：天蛋科技）创立于2014年4月,是一家年轻的互联网企业,公司主要经营多元化投资业务。
+  <!-- 杭州天蛋科技有限公司成立于2014年4月，是一家专注于挖掘新型产业，并深度孵化与培育的投融资信息第三方服务平台，通过互联网线上与线下结合，建立强大的投融界生态闭环。公司成立以来始终致力于培育新型产业、塑造品牌形象、促进经济转型升级和新兴产业发展。 未来将涵盖信息科技、互联网/新媒体、人工智能、生物医药、新能源/节能环保等国家政策重点扶持的行业领域。 -->
+  </div>
+  <div class="start">
+    <div class="start-desc animated bounce"><a href="home.html" class="block hvr-float-shadow">进入天蛋</a></div>
+    <a href="home.html" class="start-go"></a>
+  </div>
+</div>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/particles.js"></script>
+<script>
+$(function(){
+  var mw = $(window).width(),num=50,dis=100;
+  if(mw < 960){   num=20;dis=60;   }
+  /* config dom id (optional) + config particles params */
+  particlesJS('js-p', {
+    particles: {
+      color: '#fff',
+      shape: 'circle', // "circle", "edge" or "triangle"
+      opacity: 1,
+      size: 4,
+      size_random: true,
+      nb: num,
+      line_linked: {
+        enable_auto: true,
+        distance: dis,
+        color: '#fff',
+        opacity: 1,
+        width: 1,
+        condensed_mode: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 600
+        }
+      },
+      anim: {
+        enable: true,
+        speed: .5
+      }
+    },
+    interactivity: {
+      enable: true,
+      mouse: {
+        distance: 300
+      },
+      detect_on: 'canvas', // "canvas" or "window"
+      mode: 'grab',
+      line_linked: {
+        opacity: .5
+      },
+      events: {
+        onclick: {
+          enable: true,
+          mode: 'push', // "push" or "remove"
+          nb: 2
+        }
+      }
+    },
+    /* Retina Display Support */
+    retina_detect: true
+  });
+})
+</script>
+</body>
+</html>

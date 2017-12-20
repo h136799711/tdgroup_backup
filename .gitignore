@@ -1,0 +1,8 @@
+runtime/
+.idea/
+*.DS_Store
+*.bak
+public/static/cdn/
+.vscode/
+vendor/
+composer.lock

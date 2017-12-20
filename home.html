@@ -1,0 +1,81 @@
+<!--#include virtual="tpl/head.tpl"-->
+<title>杭州天蛋科技有限公司</title>
+<link rel="stylesheet" type="text/css" href="css/show.css?v=20171219" />
+</head>
+
+<body class="show">
+<!--#include virtual="tpl/menu_phone.tpl"-->
+<div class="banner-wrap">
+    <ul>
+        <li><img src="img/banner1.jpg"/></li>
+        <li><img src="img/banner2.jpg"/></li>
+        <li><img src="img/banner3.jpg"/></li>
+        <li><img src="img/banner4.jpg"/></li>
+    </ul>
+    <div class="banner-nav">
+        <ul>
+            <li class="hover"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<div class="index-mid-warp">
+<div class="index-mid index-mid3 clearfix" style="padding-bottom: 15px;">
+    <a class="a-show hvr-pulse" href="home.html" title="天蛋首页"><img src="img/index41.png"/> 天蛋首页</a>
+    <a class="a-about  hvr-pulse" href="about.html" title="走进天蛋"><img src="img/index42.png"/> 走进天蛋</a>
+    <a class="a-product  hvr-pulse" href="product.html" title="产品介绍"><img src="img/index47.png"/> 产品介绍</a>
+    <a class="a-news  hvr-pulse" href="news.html" title="最新动态"><img src="img/index43.png"/> 最新动态</a>
+    <a class="a-hand  hvr-pulse" href="hand.html" title="创始团队"><img src="img/index45.png"/> 创始团队</a>
+    <a class="a-contact  hvr-pulse" href="contact.html" title="联系我们"><img src="img/index46.png"/> 联系我们</a>
+</div>
+</div>
+<!--#include virtual="tpl/foot.tpl"-->
+<!--#include virtual="tpl/foot_script.tpl"-->
+<script type="text/javascript">
+var imageHeight = 0,n=0;
+$(function() {
+    var len = $('.banner-wrap>ul li').length;
+    // var s = 4000;
+    var mainWidth = $(window).width();
+    $('.banner-wrap>ul li img').width(mainWidth);
+    imageHeight = getImgHei(mainWidth);
+    $('.banner-wrap').height(imageHeight).find('li').height(imageHeight);
+    $('.banner-nav').css({top: imageHeight/2 - 1.5*16*2});
+    var e = function(){
+        if (n >= len) {
+            n = 0;$('.banner-wrap>ul').css({top: 0});
+        }
+        n++;
+        $('.banner-wrap>ul').stop().animate({top:-n*imageHeight+'px'},1500);
+        $('.banner-nav li:eq('+n+')').addClass('hover').siblings().removeClass('hover');
+    }
+    $('.banner-wrap>ul:eq(0)').append($('.banner-wrap>ul li:eq(0)').clone());
+    $('.banner-nav li').click(function(){
+        if(!$('.banner-nav li').is(":animated")){
+            var num = $(this).index();
+            $('.banner-nav li:eq('+num+')').addClass('hover').siblings().removeClass('hover');
+            $('.banner-wrap>ul').animate({top:-num*imageHeight+'px'},1500);
+            n = num;
+        }
+    })
+    var timer = setInterval(e,3500);
+    $('.banner-nav li').hover(function(){
+        clearInterval(timer);
+    });
+    $('.banner-wrap>ul>li').hover(function() {
+        clearInterval(timer);
+    },function() {
+        timer = setInterval(e,3000);
+    });
+})
+$(window).resize(function(){
+    var phoneWidth = $(window).width();
+    var imageHeight = getImgHei(phoneWidth);
+    $('.banner-wrap img').width(phoneWidth);
+    $('.banner-wrap').height(imageHeight).find('li').height(imageHeight);
+});
+</script>
+</body>
+</html>
